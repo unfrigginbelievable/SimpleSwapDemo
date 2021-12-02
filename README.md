@@ -6,6 +6,9 @@ Please note that this repo has only been tested on OSX.
 
 This repo is only going to work if you fork the Polygon chain. If you want to try on other chains ensure the 0x api is available on it, and change the apiURL in scripts/createCache.sh
 
+You can now run tests either with dapp tools or forge. For forge to work, ensure you fork with a block number, like this:
+forge test -f $INFURA_URL --fork-block-number $(latestBlock) --ffi
+
 Install "jq" and "in3" packages in your enviroment to run the scripts.
 
 Dont want to read a lecture of how this repo works? Take a look at SimpleTokenSwap.t.sol for the code.
