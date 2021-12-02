@@ -6,3 +6,4 @@ cache.json
 out/
 out
 out/*
+/cache
