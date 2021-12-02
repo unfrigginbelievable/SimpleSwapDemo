@@ -10,14 +10,12 @@ data=$(cat cache.json | jq ".$input" | xargs | tr -d "\n" )
 if [ "$input" = "data" ]; then
     printf $data
 
-# Large ints must be converted to hex, then encoded
 elif [ "$input" = "buyAmount" ] ||  [ "$input" = "sellAmount" ]; then
-    hex=$(printf "0x"$( echo "obase=16; $data" | bc ))
-    printf $(in3 abi_encode uint256 $hex)
+    printf $(seth --to-uint256 $data)
 
 # Addresses can be directly encoded
 elif [ "$input" = "sellTokenAddress" ] ||  [ "$input" = "buyTokenAddress" ] ||  [ "$input" = "allowanceTarget" ] ||  [ "$input" = "to" ]; then
-    printf $(in3 abi_encode address $data)
+    printf $(seth abi-encode 'f(address)' $data)
 
 # Catchall
 else

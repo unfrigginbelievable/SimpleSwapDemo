@@ -86,10 +86,10 @@ contract SimpleTokenSwapTest is
         );
 
         // Remove the cache
-        string[] memory inputs2 = new string[](2);
-        inputs2[0] = "rm";
-        inputs2[1] = "cache.json";
-        hevm.ffi(inputs2);
+        inputs = new string[](2);
+        inputs[0] = "bash";
+        inputs[1] = "scripts/removeCache.sh";
+        hevm.ffi(inputs);
 
         // Test with a 1% tolerance
         assertGe(
