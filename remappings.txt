@@ -1,0 +1,6 @@
+@openzeppelin/=lib/openzeppelin-contracts/
+ds-test/=lib/ds-test/src/
+ds-test=lib/ds-test/src/index.sol
+ds-math/=lib/ds-math/src/
+ds-math=lib/ds-math/src/index.sol
+@dapp-cheats=lib/dapp-cheats/src/
